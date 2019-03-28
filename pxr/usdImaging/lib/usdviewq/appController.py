@@ -4522,14 +4522,16 @@ class AppController(QtCore.QObject):
         # limited in scope, as we mostly use Qt's builtin hotkey dispatch.
         # Since we want navigation keys to be hover-context-sensitive, we
         # cannot use the native mechanism.
-        key = kpEvent.key()
-        if key == QtCore.Qt.Key_Right:
-            self._advanceFrame()
-            return True
-        elif key == QtCore.Qt.Key_Left:
-            self._retreatFrame()
-            return True
-        return False
+        # key = kpEvent.key()
+        # print key
+        return self._ui.frameSlider.keyPressEvent(kpEvent)
+        # if key == QtCore.Qt.Key_Right:
+        #     self._advanceFrame()
+        #     return True
+        # elif key == QtCore.Qt.Key_Left:
+        #     self._retreatFrame()
+        #     return True
+        # return False
 
     def _viewSettingChanged(self):
         self._refreshViewMenubar()

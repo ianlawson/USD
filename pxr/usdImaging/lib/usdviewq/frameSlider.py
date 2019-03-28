@@ -36,6 +36,7 @@ class FrameSlider(QtWidgets.QSlider):
         self._mousePauseTimer = QtCore.QTimer(self)
         self._mousePauseTimer.setInterval(self.PAUSE_TIMER_INTERVAL)
         self._mousePauseTimer.timeout.connect(self.mousePaused)
+        self.setFocusPolicy(QtCore.Qt.NoFocus)
 
     def mousePaused(self):
         """Slot called when the slider scrubbing is paused."""
